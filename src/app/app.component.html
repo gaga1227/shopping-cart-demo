@@ -1,0 +1,19 @@
+<div class="app">
+  <!-- heading for accessibility -->
+  <h1 class="visually-hidden">Shopping Cart Demo</h1>
+
+  <!-- cart: shopping cart component -->
+  <app-cart
+      [products]="availableProducts"
+      (removeFromCartClick)="onCartItemChange($event, false)"></app-cart>
+
+  <!-- product display: container component for published product items -->
+  <app-product-display
+      [products]="availableProducts"
+      [isProductsLoadComplete]="isRemoteProductsLoaded"
+      [isProductsLoadError]="isRemoteProductsLoadError"
+      (addToCartClick)="onCartItemChange($event, true)"></app-product-display>
+
+  <!-- for accessibility announcement -->
+  <div class="visually-hidden" aria-live="polite" [innerHTML]=announcementContent></div>
+</div>

@@ -1,0 +1,25 @@
+<div class="app__cart">
+  <h2>Shopping cart</h2>
+
+  <!-- cart message -->
+  <div class="app__cart-msg" *ngIf=!cartItems.length>Your cart is empty, shop now!</div>
+
+  <!-- shopping cart container -->
+  <ol class="app__cart-items list--unstyled">
+
+    <!-- shopping cart items -->
+    <li class="app__cart-item"
+        *ngFor="let cartItem of cartItems"
+        [attr.data-product-index]=cartItem.prodIndex>
+
+      <h4 class="app__cart-item-title"
+          [innerHTML]=cartItem.prodName></h4>
+
+      <button class="app__cart-item-remove btn btn--small"
+              (click)="onRemoveFromCartClick(cartItem.prodIndex)">
+        Remove
+        <span class="visually-hidden">{{cartItem.prodName + ' from cart'}}</span>
+      </button>
+    </li>
+  </ol>
+</div>

@@ -1,0 +1,54 @@
+:host {
+  display: block;
+  width: auto;
+}
+
+@media screen and (min-width: 970px) {
+  :host {
+    float: right;
+    width: 320px;
+  }
+}
+
+.app__cart h2 {
+  color: #2D2379;
+  font-size: 34px;
+  font-weight: 300;
+  text-transform: capitalize;
+  text-align: center;
+  margin: 10px auto 0 auto;
+}
+
+.app__cart-msg {
+  color: #666;
+  padding: 15px;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+}
+
+@media screen and (min-width: 680px) {
+  .app__cart-items {
+    margin: 0 15px;
+  }
+}
+
+.app__cart-item {
+  align-items: center;
+  display: flex;
+  border-bottom: 1px solid #aaa;
+  padding: 15px 0;
+}
+
+.app__cart-item-title {
+  flex: 1 1 auto;
+  margin: 0 20px 0 0;
+  color: #0057c8;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.app__cart-item-remove {
+  flex: 0 0 auto;
+}

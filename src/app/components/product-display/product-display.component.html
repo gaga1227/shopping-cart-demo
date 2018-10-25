@@ -1,0 +1,41 @@
+<div class="app__product-display">
+  <!-- section heading for accessibility -->
+  <h2 class="visually-hidden">Products</h2>
+
+  <!-- loading messages -->
+  <div class="app__product-display-msg" *ngIf=!isProductsLoadComplete>
+    <span *ngIf=!isProductsLoadError>Loading products...</span>
+    <span *ngIf=isProductsLoadError>Error loading products :(</span>
+  </div>
+
+  <!-- loading success: show product display -->
+  <ol class="app__product-display-list list--unstyled"
+      *ngIf="isProductsLoadComplete">
+
+    <!-- product display items -->
+    <li class="app__product-display-item"
+        *ngFor="let product of products"
+        [ngClass]="{'is-hidden': product.addToCartTimestamp > 0}"
+        [attr.data-index]=product.index>
+
+      <h4 class="app__product-display-item-title"
+          [innerHTML]=product.name></h4>
+
+      <img class="app__product-display-item-thumb"
+           [src]=product.thumbUrl
+           [title]=product.name
+           alt="Image of {{product.name}}"/>
+
+      <div class="app__product-display-item-price">
+        <span class="visually-hidden">{{'priced at ' + product.price}}</span>
+        <span aria-hidden="true">{{product.displayPrice}}</span>
+      </div>
+
+      <button class="app__product-display-item-add btn btn--cta-primary"
+              (click)="onAddToCart(product.index)">
+        Add to cart
+        <span class="visually-hidden">{{'for ' + product.name + ' priced at ' + product.price}}</span>
+      </button>
+    </li>
+  </ol>
+</div>
